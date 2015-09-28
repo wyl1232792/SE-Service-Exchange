@@ -22,7 +22,7 @@ composer去网上下载一个composer.phar文件，丢到根目录就可以了�
 ###laravel本地化
 打开git bash到根目录。运行一下代码。
 ```Bash
-mv .env.example .env
+cp .env.example .env
 ```
 在运行第一条命令后根目录会生成一个.env文件，里面有设置数据库用户名和密码。如果是windows安装xampp的话，默认情况下就不用设置了。否则请自行更改。
 ```Bash
