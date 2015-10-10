@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Input;
 class HomeController extends Controller
 {
     /**
@@ -17,6 +17,12 @@ class HomeController extends Controller
     {
         //
         return view('welcome');
+    }
+
+    public function getHash()
+    {
+        $string = Input::get('string');
+        return md5($string);
     }
 
     /**

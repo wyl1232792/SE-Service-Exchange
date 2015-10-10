@@ -33,12 +33,19 @@
             .title {
                 font-size: 96px;
             }
+
+            input {
+                margin-right: 30px;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <form method="get" action="hash">
+                    <input name="value" placeholder="enter string here">
+                    <button>get hash</button>
+                </form>
             </div>
         </div>
     </body>
