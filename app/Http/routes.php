@@ -17,6 +17,7 @@ Route::get('goods/search', 'HomeController@index');
 Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
 Route::get('/logout', 'Auth\AuthController@logout');
+Route::get('signup', 'HomeController@signup');
 Route::post('/signup', 'Auth\AuthController@signup');
 Route::get('/jaccount', 'Auth\JAuthController@login');
 Route::get('/jalogout', 'Auth\JAuthController@logout');
