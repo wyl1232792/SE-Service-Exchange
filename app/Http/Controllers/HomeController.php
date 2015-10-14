@@ -13,10 +13,20 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function index()
     {
         //
-        return view('welcome');
+        return view('body');
+    }
+
+    public function showProfile()
+    {
+
+    }
+
+    public function listItem()
+    {
+        
     }
 
     /**

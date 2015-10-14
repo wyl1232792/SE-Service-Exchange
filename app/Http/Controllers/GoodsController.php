@@ -79,8 +79,23 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         //
+    }
+
+    public function quote($id)
+    {
+
+    }
+
+    public function trade($id)
+    {
+
+    }
+
+    public function mark($id)
+    {
+        
     }
 }

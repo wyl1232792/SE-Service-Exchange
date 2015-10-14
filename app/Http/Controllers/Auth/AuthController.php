@@ -95,7 +95,7 @@ class AuthController extends Controller
      *
      * @return view/json
      */
-    public function postSignup()
+    public function signup()
     {
 
     }
