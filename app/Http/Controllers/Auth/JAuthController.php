@@ -15,7 +15,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Jaccount;
 use App\User;
-use App\Student;
 
 class JAuthController extends Controller
 {
@@ -47,14 +46,8 @@ class JAuthController extends Controller
             $user->password = Hash::make('jaccount.password');
             $user->email = $email;
             $user->type = ($isStudent) ? 1 : 0;
+            $user->group = 1;//basic user
             $user->save();
-
-            if ($isStudent) {
-                $student = new Student;
-                $student->student_id = $snum;
-                $student->name = $realName;
-                $student->save();
-            }
             
             $jaccount = new Jaccount;
             $jaccount->user_id = $user->id;

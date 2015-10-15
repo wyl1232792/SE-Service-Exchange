@@ -16,7 +16,7 @@ Route::get('goods/search', 'HomeController@index');
 
 Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
-Route::get('/logout', 'Auth\AuthController@logout');
+Route::get('/logout', 'Auth\AuthController@getLogout');
 Route::get('signup', 'HomeController@signup');
 Route::post('/signup', 'Auth\AuthController@signup');
 Route::get('/jaccount', 'Auth\JAuthController@login');
@@ -26,6 +26,7 @@ Route::get('/goods/{id}/detail', 'GoodsController@show')->where('id', '[0-9]+');
 Route::get('/profile/{id}', 'UserController@show')->where('id', '[0-9]+');
 
 Route::group(['middleware' => 'auth'], function() {
+	Route::get('user/current', 'Auth\AuthController@currentUser');
 	Route::get('home', 'HomeController@showProfile');
 	Route::get('profile/edit', 'HomeController@editProfile');
 	Route::post('profile/edit', 'UserController@editCurrentUser');

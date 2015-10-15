@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
 use Closure;
 
 class AuthAdmin
@@ -15,6 +16,13 @@ class AuthAdmin
      */
     public function handle($request, Closure $next)
     {
+        if (Auth::guest() || Auth::user()->group == 4) {
+            if ($request->ajax()) {
+                return response('Unauthorized.', 401);
+            } else {
+                return redirect('/');
+            }
+        }
         return $next($request);
     }
 }
