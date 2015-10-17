@@ -39,9 +39,6 @@
             <div class="form-group">
               <input type="password" class="form-control" placeholder="Password">
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Group">
-            </div>
             <button type="submit" class="btn btn-default">提交</button>
           </form> 
        </ul>
