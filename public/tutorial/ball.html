@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>ball</title>
+
+  <style type="text/css">
+    *{margin: 0;padding: 0;}
+    #ball{
+      width: 30px;height:30px;
+      border-top-left-radius:16px;
+      border-top-right-radius:16px;
+      border-bottom-left-radius:16px;
+      border-bottom-right-radius:16px;
+      background-color:orange;
+    }
+    #block{
+      position: absolute;
+      top: 10px;
+      left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ball" style="position: absolute;top:0px;left:0px"></div>
+
+  <script type="text/javascript">
+    var dball = document.getElementById("ball");
+    var window_width = 1000;
+    var window_height = 600;
+    var left_position = parseInt( dball.style.left);
+    var top_position = parseInt(dball.style.top); 
+    var speedy = 0.0;
+    var sp_rate = 0.8;
+    var speedx = 2;
+    var speedm = 0;
+    var acc = 0.5;
+    var first_drop = true;
+    /////////////////////////水平方向//////////////////////////////////
+    function xmove() {
+        left_position = parseInt(dball.style.left);
+        if (left_position + 15 >= window_width || left_position < 0)
+          speedx = -speedx; //change direction of x
+        dball.style.left = (left_position + speedx) + "px";
+    }
+    var doxmove = setInterval("xmove()", 10); 
+
+    /////////////////////////竖直方向//////////////////////////
+    function ymove() {
+      // accelerate
+      speedy += acc;
+      top_position = parseInt(dball.style.top);
+      if (top_position + 4 >= window_height && speedy > 0) {
+        if (first_drop) {
+          speedm = -speedy;
+          first_drop = false;
+        }
+        speedy = speedm *= sp_rate;
+      }
+      // move
+      dball.style.top = (top_position + speedy) + "px";
+
+    }
+    var doymove =setInterval("ymove()",10);
+  </script>
+</body>
+</html>

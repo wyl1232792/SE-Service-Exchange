@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
 use Validator;
+use Request;
+use Input;
+use Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -30,7 +34,6 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
     }
 
     /**
@@ -61,5 +64,78 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Login in get Method
+     * [get]
+     * @param email
+     * @param password
+     * @return redirect/json
+     */
+    public function getLogin(Request $request)
+    {
+        $credentials = Input::all();
+        if (Auth::attempt($credentials))
+            return redirect()->back();
+        else
+            return redirect()->back();
+    }
+
+    /**
+     * Login in post Method
+     * [post]
+     * @param email
+     * @param password
+     * @return redirect/json
+     */
+    public function postLogin(Request $request)
+    {
+        $credentials = Input::all();
+        if (Auth::attempt($credentials))
+            return redirect()->back();
+        else
+            return redirect()->back();
+    }
+
+    /**
+     * Log out in get Method
+     * @return view/json
+     */
+    public function getLogout()
+    {
+        Auth::logout();
+        return redirect()->back();
+    }
+
+    /**
+     * Sign up in post method
+     * [post]
+     * @param name
+     * @param email
+     * @param password
+     * @return view/json
+     */
+    public function signup()
+    {
+        $user = Input::all();
+        $validator = $this->validator($user);
+        if ($validator->passes())
+        {
+            $this->create($user);
+            return redirect('/');
+        }
+        else
+            return Response::json(['reason' => $validator->message()]);
+    }
+
+    /**
+     * get Current user info
+     *
+     * @return json
+     */
+    public function currentUser()
+    {
+       return Response::json(Auth::user());
     }
 }
