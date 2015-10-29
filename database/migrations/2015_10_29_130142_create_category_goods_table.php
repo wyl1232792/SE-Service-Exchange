@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuotesTable extends Migration
+class CreateCategoryGoodsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,13 @@ class CreateQuotesTable extends Migration
      */
     public function up()
     {
-        Schema::table('quotes', function (Blueprint $table) {
-            //二期开发
+        Schema::table('category_goods', function (Blueprint $table) {
+            $table->increment('id');
+            $table->integer('category_id');
+            $table->integer('goods_id');
+            $table->timestamps();
         });
+        //
     }
 
     /**
@@ -24,8 +28,6 @@ class CreateQuotesTable extends Migration
      */
     public function down()
     {
-        Schema::table('quotes', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

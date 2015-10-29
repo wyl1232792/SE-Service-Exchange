@@ -13,7 +13,12 @@ class CreateCategoriesTable extends Migration
     public function up()
     {
         Schema::table('categories', function (Blueprint $table) {
-            //
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+            $table->integer('class');//指定标签级别
+            $table->string('visible');//标签是否被允许显示
+            $table->timestamps();
         });
     }
 

@@ -13,7 +13,11 @@ class CreateTradesTable extends Migration
     public function up()
     {
         Schema::table('trades', function (Blueprint $table) {
-            //
+            $table->increment('id');
+            $table->integer('goods_id');
+            $table->integer('trader_id');
+            $table->string('description');
+            $table->timestamps();
         });
     }
 

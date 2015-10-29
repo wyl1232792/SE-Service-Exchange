@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMarksTable extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,12 @@ class CreateMarksTable extends Migration
      */
     public function up()
     {
-        Schema::table('marks', function (Blueprint $table) {
+        Schema::table('contacts', function (Blueprint $table) {
             $table->increment('id');
             $table->integer('user_id');
-            $table->integer('goods_id');
+            $table->string('true_name');
+            $table->string('phone');
+            $table->string('others');//直接暴力存储qq微信这种
             $table->timestamps();
         });
     }
@@ -27,8 +29,6 @@ class CreateMarksTable extends Migration
      */
     public function down()
     {
-        Schema::table('marks', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }
