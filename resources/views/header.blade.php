@@ -42,7 +42,8 @@
             <div class="form-group">
               <input type="password" class="form-control" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-default">提交</button>
+            <button type="submit" class="btn btn-default">登录</button>
+             <button type="submit" class="btn btn-default">注册</button>
           </form> 
        </ul>'
         else
