@@ -8,4 +8,8 @@ class Jaccount extends Model
 {
     //
     protected $table = 'jaccounts';
+
+    public function user() {
+    	return $this->belongsTo('App\User');
+    }
 }
