@@ -34,8 +34,6 @@ class CreateGoodsTable extends Migration
      */
     public function down()
     {
-        Schema::table('goods', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('goods');
     }
 }

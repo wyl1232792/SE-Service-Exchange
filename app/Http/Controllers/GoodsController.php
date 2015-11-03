@@ -25,7 +25,10 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        //
+        //读取内容
+        //创建模型，保存
+        //反馈
+        
     }
 
     /**

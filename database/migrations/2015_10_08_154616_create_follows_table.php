@@ -27,8 +27,6 @@ class CreateFollowsTable extends Migration
      */
     public function down()
     {
-        Schema::table('follows', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('follows');
     }
 }

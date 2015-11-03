@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Goods;
+use Session;
 class HomeController extends Controller
 {
     /**
@@ -15,8 +16,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
-        return view('body');
+        $itemPerPage = 20;
+        $goods = Goods::paginate($itemPerPage);
+        return view('body', [
+                'goods' => $goods,
+            ]);
     }
 
     public function showProfile()

@@ -28,8 +28,6 @@ class CreateRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::table('requests', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('requests');
     }
 }

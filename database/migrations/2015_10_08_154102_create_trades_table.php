@@ -28,8 +28,6 @@ class CreateTradesTable extends Migration
      */
     public function down()
     {
-        Schema::table('trades', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('trades');
     }
 }

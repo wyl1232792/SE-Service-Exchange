@@ -27,8 +27,6 @@ class CreateMarksTable extends Migration
      */
     public function down()
     {
-        Schema::table('marks', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('marks');
     }
 }
