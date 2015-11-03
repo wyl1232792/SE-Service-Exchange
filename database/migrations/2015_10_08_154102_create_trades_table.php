@@ -12,8 +12,8 @@ class CreateTradesTable extends Migration
      */
     public function up()
     {
-        Schema::table('trades', function (Blueprint $table) {
-            $table->increment('id');
+        Schema::create('trades', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('goods_id');
             $table->integer('trader_id');
             $table->string('description');
@@ -28,6 +28,6 @@ class CreateTradesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('trades');
+        Schema::dropIfExists('trades');
     }
 }

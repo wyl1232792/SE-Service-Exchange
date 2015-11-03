@@ -31,6 +31,6 @@ class CreateJaccountsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('jaccounts');
+        Schema::dropIfExists('jaccounts');
     }
 }
