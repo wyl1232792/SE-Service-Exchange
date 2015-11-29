@@ -207,7 +207,7 @@
  <!--end of row-->
         <!--pager -->
         <nav>
-  <ul class="pager" id="pagerctl">
+  <ul class="pager" id="pagerctl" id="pager">
     <li >
       <a href="#" aria-label="Previous">
         <span aria-hidden="true" >&laquo;</span>
