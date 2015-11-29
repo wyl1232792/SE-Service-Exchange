@@ -149,7 +149,8 @@
                 <div class="act-recommend-part type-panel-con ng-scope" id="type-recmd" ng-controller="ActRecommendCtrl" ng-hide="acts.length == 0">
                     <div class="act-recommend-title">相关活动</div>
                     <div class="act-recommend-body">
-                        <!-- ngRepeat: act in acts --><tq-one-act ng-repeat="act in acts" tq-act="act" class="ng-scope ng-isolate-scope">
+                        <!-- ngRepeat: act in acts -->
+                        <tq-one-act ng-repeat="act in acts" tq-act="act" class="ng-scope ng-isolate-scope">
       <div class="one-related-act">
             <div class="poster-con" ng-click="showDetail(act.actid)">
                 <img ng-click="zoomIn()" poster="http://www.tongqu.me/upload/acts/20151123/normal_ff764ef38af65370b8799e963a1d82b4.jpg" height="95" width="100" type="2" class="ng-isolate-scope" src="http://www.tongqu.me/upload/acts/20151123/normal_ff764ef38af65370b8799e963a1d82b4.jpg" style="width: 100px; height: auto;">
