@@ -118,6 +118,12 @@ class AuthController extends Controller
      */
     public function signup()
     {
+        $user = [
+            'username' => 'wyl'
+            'password' => '123'
+            'email' => 'weyl1232179Q@garg'
+        ];
+
         $user = Input::all();
         $validator = $this->validator($user);
         if ($validator->passes())
@@ -137,5 +143,16 @@ class AuthController extends Controller
     public function currentUser()
     {
        return Response::json(Auth::user());
+    }
+
+    public function changePassword()
+    {
+        //input :
+        //          user_id
+        //          oldPassWord
+        //          newPassWord
+
+
+        return redirect('home');
     }
 }
