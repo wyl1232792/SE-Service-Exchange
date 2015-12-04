@@ -31,7 +31,10 @@
         </li>
       </ul>
       <!-- User Info-->
-       <ul class="nav navbar-nav navbar-right">
+      <?php
+        if ($islogin = false)
+          echo 
+       '<ul class="nav navbar-nav navbar-right">
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Username">
@@ -42,7 +45,10 @@
             <button type="submit" class="btn btn-default">登录</button>
              <button type="submit" class="btn btn-default">注册</button>
           </form> 
-       </ul>
+       </ul>'
+        else
+          echo '';
+        ?>
     </div><!-- /.navbar-collapse -->
    </div><!-- /.container-fluid -->
   </nav>
