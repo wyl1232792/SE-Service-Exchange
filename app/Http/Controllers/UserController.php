@@ -48,6 +48,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $userDetail = User::findOrFail($id);
+        return view('userDetail')->with('user', $userDetail);
     }
 
     /**
@@ -56,9 +58,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
         //
+        $input = $request->all();
+        $user = User::findOrFail($input['id']);
+        $user->name = $input['name'];
+        $user->email = $input['email'];
+        $user->type = $input['type'];
+        $user->group = $input['group'];
+        $user->save();
+        return redirect('/profile/' . $input['id']);
     }
 
     /**

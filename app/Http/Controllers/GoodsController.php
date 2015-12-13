@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Goods;
 
 class GoodsController extends Controller
 {
@@ -51,8 +52,8 @@ class GoodsController extends Controller
     public function show($id)
     {
         //
-
-        return view('goodsDetail');
+        $goodsDetail = Goods::findOrFail($id);
+        return view('goodsDetail')->with('goods', $goodsDetail);
     }
 
     /**
