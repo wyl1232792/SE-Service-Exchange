@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Goods;
 
 class GoodsController extends Controller
 {
@@ -23,11 +24,39 @@ class GoodsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(GoodsRequest $request)
     {
         //读取内容
-        //创建模型，保存
-        //反馈
+        $photo = $request->file('photo');
+        $extension = strtolower($photo->getClientOriginalExtension());
+        $input = $request->all();
+        
+        //save image
+        //get imageurl
+        //save model
+
+        if ($request->file('photo')->isValid()){
+                $file = Request::file('photo');
+                $name = md5(microtime().$input['id']).'.'.$extension;
+                Request::file('photo')->move($'public/img', $name);
+                $path = 'public/img/';
+                $image_url = $path . '/' . $name;
+                $good = Goods::create([
+                    'name' => $input['name'],
+                    'description' => $input['description'],
+                    'id' => $input['id'],
+                    'user_id' =>  $input['user_id'],
+                    'type' => $input['type'],
+                    'price' => $input['price'],
+                    'status' => $input['status'],
+                    'tag' => $input['tag'], 
+                    'image_url' => $input['image_url'],  
+            ]);
+        }
+       
+        return redirect('/goods/' . $good->id . '/detail')->with('message', 'Information successfully recorded');
+
+
         
     }
 
