@@ -118,6 +118,12 @@ class AuthController extends Controller
      */
     public function signup()
     {
+        $user = [
+            'username' => 'wyl'
+            'password' => '123'
+            'email' => 'weyl1232179Q@garg'
+        ];
+
         $user = Input::all();
         $validator = $this->validator($user);
         if ($validator->passes())
@@ -137,5 +143,43 @@ class AuthController extends Controller
     public function currentUser()
     {
        return Response::json(Auth::user());
+    }
+
+    protected function vertifyNewPassword(array $data)
+    {
+        return Validator::make($data,['newPassWord' => 'required|confirmed|min:6'])
+    }
+    public function changePassword()
+    {
+        //input :
+        //          user_id
+        //          oldPassWord
+        //          newPassWord
+        if (Auth::check())
+        {
+            // The user is logged in...
+            $user = Auth::User();
+            $user_changePassword = Input::all();
+            if ($user->password === bcrypt($oldPassWord)
+            {
+                $validator = $this->vertifyNewPassword($user_changePassword);
+                if ($validator->passes())
+                {
+                    $user->password = bcrypt($newPassWord);
+                    $user->save();
+                }
+                else
+                {
+                    //新密码不符合要求
+                }
+            }
+            else
+            {
+                //旧密码不符
+            }
+
+        }
+        
+        return redirect('home');
     }
 }

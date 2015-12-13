@@ -80,6 +80,8 @@ class GoodsController extends Controller
     public function show($id)
     {
         //
+        $goodsDetail = Goods::findOrFail($id);
+        return view('goodsDetail')->with('goods', $goodsDetail);
     }
 
     /**

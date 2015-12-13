@@ -100,6 +100,713 @@ hr.divider{
     height: 85px;
     background-color: rgb(252,252,252);
 }
+
 #pagerctl {
   margin-bottom:20px; 
 }
+/* This is the css for header and footer and other general css settings */
+body {
+    padding-top: 70px;
+    font-family:lato-regular, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background-color: rgb(253,253,253);
+}
+
+/* Wrapper for page content to push down footer */
+.wrap {
+    position: relative;
+    height: auto;
+    min-height: 450px;
+    width: 1000px;
+    /* Negative indent footer by its height */
+    margin: 0 auto;
+    /* Pad bottom by footer height */
+}
+
+/*页面的中间部分，网页默认为1000px*/
+@media(min-width:1001px) {
+    .center-content {
+        width: 1000px;
+        margin: auto;
+    }
+
+    .wrap {
+        width: 1000px;
+    }
+}
+
+@media(max-width:1000px) {
+    .center-content {
+        width: 100%;
+        margin: auto;
+    }
+
+    .wrap {
+        width: 100%;
+    }
+
+    #footer {
+        padding: 0px;
+        width: 100%;
+    }
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+/* hide all the template elements */
+.template {
+    display: none;
+}
+
+#tq-nav-top .navbar-brand {
+    padding: 5px 0px 0px;
+}
+
+/*  for back to top and go to bottom buttons */
+#go-to {
+    position: fixed;
+    right: 10px;
+    bottom: 100px;
+    display: none; /* hide by default */
+    z-index: 1000;
+}
+#go-to .up-down {
+    display: block;
+    margin-bottom: 25px;
+    background-color: black;
+    color: white;
+    opacity: 0.3;
+    border-radius: 18.5px;
+    width: 37px;
+    height: 37px;
+    line-height: 45px;
+    font-size: 35px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+#go-to i.fa-angle-up {
+    position: absolute;
+    left: 7px;
+    top: -1px;
+}
+
+#go-to i.fa-angle-down {
+    position: absolute;
+    left: 7px;
+    top: 4px;
+}
+
+#footer {
+    background-color: rgb(236,236,236);
+    padding: 15px 0px;
+    margin-top: 50px;
+    color: rgb(90, 90, 90);
+}
+
+#footer a {
+    color: rgb(90, 90, 90);
+}
+
+#footer a:hover {
+    color: rgb(120,120,120);
+}
+
+#footer > .content {
+    width: 1000px;
+    margin: 0px auto;
+    padding: 0px 1px;
+}
+
+#footer > .content > .right-part {
+    margin-top: 30px;
+}
+
+#footer > .content > .right-part > div{
+    float: left;
+    margin: 0px 10px;
+}
+
+
+#about {
+    margin-right: 100px;
+}
+
+#contact {
+    margin-left: 100px;
+}
+
+
+/* 鼠标手势 */
+.tq-cursor {
+    cursor: pointer;
+}
+
+.tq-cursor-zoom {
+    cursor: zoom-in; 
+    cursor:-webkit-zoom-in;
+    cursor:-moz-zoom-in;
+}
+
+/*ng-cloak*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    display: none !important;
+}
+
+ng\:form {
+    display: block;
+}
+
+.ng-animate-start {
+    clip: rect(0, auto, auto, 0);
+    -ms-zoom: 1.0001;
+}
+
+.ng-animate-active {
+    clip: rect(1px, auto, auto, 0);
+    -ms-zoom: 1;
+}
+
+/* ng-context-menu */
+.position-fixed {
+    position: fixed;
+}
+
+
+/*针对bootstrap版本不同作的修改!important*/
+
+.form-control-feedback {
+    top: 0px;
+}
+
+.has-success .form-control-feedback {
+    right: 15px;
+    color: #5BB95D;
+}
+
+.has-error .form-control-feedback {
+    right: 15px;
+}
+
+.help-block {
+    margin-bottom: 0px;
+}
+
+.feedback-textarea{
+    width: 400px;
+    height: 150px;
+    resize:none;
+}
+.feedback{
+    vertical-align: top;
+    margin-top: 5px;
+}
+#fdback-panel {
+    position: fixed;
+    right: 10px;
+    bottom: 230px;
+}
+.feedback-btn{
+    display: block;
+    margin-bottom: 25px;
+    background-color: black;
+    color: white;
+    opacity: 0.3;
+    width: 37px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+.feedback-nav{
+    font-weight: bold;
+    color: #ff0000 !important;
+    cursor: pointer;
+}
+
+body {
+    background-color: rgb(243,243,243);
+}
+
+.wrap {
+    margin-top: 20px;
+
+    width: 1000px;
+    height: auto;
+    min-height: 600px;
+}
+
+
+/* 活动主体 */
+.act-part, .comment-part, .act-brief-part, .sign-up-con, .act-member-part, .act-recommend-part {
+    padding-top: 10px;
+    margin: 0px auto 15px auto;
+    border-radius: 5px;
+    background-color: white;
+}
+
+/*活动标题*/
+.act-title {
+    margin:15px;
+    padding: 5px 10px;
+
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    font-family: lato-regular, 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
+/* 左上方的tag */
+.act_tags {
+    font-size: 16px;
+    color: #a0a0a0;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.act_tag_type {
+    padding-left: 10px;
+}
+
+/*活动简介*/
+.act-brief-part {
+    padding: 0px;
+}
+
+.act-brief-part .act-brief {
+    padding: 70px 15px 10px 15px;
+    margin: 0px;
+}
+
+.act-brief-part .act-brief > div {
+    color: rgb(117, 117, 117);
+    font-size: 13px;  
+    width: 100%;
+    margin-bottom: 10px;
+    cursor: default;
+}
+
+.act-brief-part .act-brief > div > a {
+    color: rgb(117,117,117);
+}
+
+.act-brief-part .act-brief .like-row {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.act-brief-part .act-brief .like-row i, .act-brief-part .act-brief .like-row div {
+    vertical-align: middle;
+}
+
+/*我要去*/
+.act_signnotbegin {
+    float: right;
+    word-spacing: 0.2em;
+    letter-spacing: 0.2em;
+    padding-top: 13px;
+    width: 130px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px #A4A5AD;
+    background-color: rgba(206, 240, 206, 0.42);
+}
+
+.signuppart {
+    width: 100px;
+    height: auto;
+    margin-right: 0px;
+    position: fixed;
+    right: -15px;
+    top: 115px;
+    font-size: 30px;
+    font-family: '黑体';
+
+}
+
+.act_label {
+    text-align: center;
+}
+
+.qr-code-btn {
+    display: inline-block;
+    float: left;
+    margin-top: -7px;
+    text-align: center;
+    padding-left: 15px;
+}
+
+#qr-code-location {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.act-poster {
+    overflow: hidden;
+    margin: 0px 15px;
+    max-height: 500px;
+}
+
+.act-poster img{
+    border-radius: 3px;
+}
+
+.act_desc {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    word-break: break-all;
+    border-top: 1px solid #BFBFBF;
+}
+
+.act_desc img {
+    max-width: 100%;
+}
+
+.act_attach {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    word-break: break-all;
+    border-top: 1px solid #BFBFBF;
+}
+
+/*活动成员*/
+.act-member-part {
+    padding-bottom: 10px;
+}
+
+.act-member-title {
+    height: 30px;
+    font-weight: bold;
+    font-size: 15px;
+    border-bottom: 1px solid #BFBFBF;
+    padding: 0 15px;
+}
+
+.act-members {
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.act-members > .member-con {
+    width: 96%;
+    margin: auto;
+}
+
+.act-member {
+    margin-left: 5px;
+    float: left;
+    margin-right: 5px;
+}
+
+.act-member-photo {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.act-member-photo img {
+    width: 50px;
+    height: 50px;
+}
+
+.act-member-name {
+    margin-top: 5px;
+    text-align: center;
+    color: #A4A5AD;
+    font-size: 13px;
+    width: 50px;
+    height: 20px;
+    overflow: hidden;
+}
+
+/*recommend*/
+
+.act-recommend-part {
+    /*border-bottom: dashed 1px #A4A5AD;*/
+}
+
+.act-recommend-title {
+    height: 30px;
+    font-weight: bold;
+    font-size: 15px;
+    border-bottom: 1px solid #BFBFBF;
+    padding-left: 15px;
+}
+
+.act-recommend-body {
+    padding: 5px 15px 10px 15px;
+}
+
+/*comment*/
+.comment-part {
+    padding-bottom: 15px;
+}
+
+.comment-title {
+    width: 80px;
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 15px;
+}
+
+.comment-title-right {
+    margin: 7px 0px 20px 20px;
+    width: 520px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #949494;
+    padding-bottom: 30px;
+    border-bottom: solid 1px #A4A5AD;
+}
+
+#exist-comment {
+    clear: both;
+}
+
+/*单个评论*/
+.comment-left {
+    margin-left: 15px;
+    float: left;
+}
+
+.comment-right {
+    margin-left: 15px;
+    float: left;
+    width: 550px;
+    border-bottom: solid 1px #A4A5AD;
+}
+
+.comment-right > div {
+    margin-bottom: 10px;
+}
+
+.one-comment:last-child .comment-right {
+    border-bottom-width: 0px;
+}
+
+.user-photo img {
+    width: 60px;
+    height: 60px;
+}
+
+.user-name {
+    overflow: hidden;
+    font-size: 17px;
+    font-weight: bold;
+    color: #949494;
+}
+
+.comment-id-href {
+    position: absolute;
+    top: -50px;
+}
+
+.one-comment {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.comment-quote {
+    border: dashed 1px #A4A5AD;
+    padding: 10px 20px;
+}
+
+.comment-quote-title {
+    font-weight: bold;
+}
+
+.comment-quote-content {
+    font-weight: normal;
+}
+
+.user-operation a {
+    text-align: left;
+    float: right;
+    margin-right: 8px;
+}
+
+.e-comment-reply {
+    text-align: right;
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.add-comment {
+    padding: 0px 20px;
+}
+
+.add-comment > p {
+    font-weight: bold;
+}
+
+#comment-body {
+    width: 617px;
+}
+
+.add-comment-btn, .cancel-comment-btn {
+    margin-top: 15px;
+    width: 80px;
+}
+
+.cancel-comment-btn {
+    margin-left: 10px;
+}
+
+/*活动状态栏*/
+.sign-up-con {
+    float: left;
+    vertical-align: middle;
+}
+
+.act_label {
+    margin-left: 10px;
+    margin-right: auto;
+    border-radius: 50%;
+    background: rgb(175, 160, 146);
+    height: 150px;
+    width: 150px;
+    display: table;
+
+}
+
+.act_label > a {
+    font-size: 20px;
+    width: 190px;
+    margin-left: -20px;
+    margin-right: -20px;
+    color: white;
+    font-weight: 900;
+    cursor: pointer;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.bdsharebuttonbox {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+
+.btn-container {
+    margin-top: 15px;
+}
+
+.btn-container > div {
+    width: 100%;
+    font-size: 20px;
+}
+
+/* 一些常用的颜色类 */
+.tq-white {
+    color: white;
+}
+
+.tq-white:hover {
+    color: white;
+}
+
+.tq-red {
+    color: #FF4940 !important;
+}
+
+.tq-red-hover:hover {
+    color: #FF4940;
+}
+
+.tq-yellow {
+    color: #f8ff71;
+}
+
+.tq-green {
+    color: #2F8F00;
+}
+
+.tq-green-hover:hover {
+    color: #2F8F00;
+}
+
+.tq-blue {
+    color: lightblue;
+}
+
+.tq-blue-hover:hover {
+    color: lightblue;
+}
+
+.tq-grey {
+    color: rgb(211,211,211);
+}
+
+.tq-dimgrey {
+    color: #C6C6C6;
+}
+
+.tq-d-grey {
+    color: rgb(130,130,130);
+}
+
+.tq-d-grey:hover {
+    color: rgb(150,150,150);
+}
+
+.tq-redder {
+    color: rgb(221, 144, 119);
+}
+
+.tq-redder:hover {
+    color: rgba(221, 144, 119, 0.7);
+}
+
+.tq-orange {
+    color: rgb(230, 138, 33);
+}
+
+/* TODO: 也应该加上tq的前缀,比如 tq-bg-blue*/
+.bg-blue {
+    background-color: #2980b9;
+}
+
+.bg-blue:hover {
+    background-color: #50a7e0;
+}
+
+.bg-red {
+    background-color: #e74c3c;
+}
+
+.bg-green {
+    background-color: #27ae60;
+}
+
+.bg-green:hover {
+    background-color: #5EC087;
+}
+
+.bg-gray {
+    background-color: #95a5a6;
+}
+
+.bg-gray:hover {
+    background-color: rgba(149, 165, 166, 0.84);
+}
+
+.bg-nav-black {
+    background-color: #3A3B3D;
+}
+
+
