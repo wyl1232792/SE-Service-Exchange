@@ -25,7 +25,7 @@ class HomeController extends Controller
 
     public function showProfile()
     {
-
+        return view('profile.dashboard');
     }
 
     public function listItem()

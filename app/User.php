@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Auth\Authenticatable;
+use App\Jaccount;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -40,6 +41,15 @@ class User extends Model implements AuthenticatableContract,
     public function jaccount()
     {
         return $this->hasOne('App\Jaccount');
+    }
+
+    public function getDisplayName()
+    {
+        $jaccount = Jaccount::where('user_id', '=', $this->id)->first();
+        if ($jaccount == NULL)
+            return $this->name;
+        else
+            return $jaccount->real_name;
     }
 
     public function goods()

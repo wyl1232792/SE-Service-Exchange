@@ -118,12 +118,6 @@ class AuthController extends Controller
      */
     public function signup()
     {
-        $user = [
-            'username' => 'wyl'
-            'password' => '123'
-            'email' => 'weyl1232179Q@garg'
-        ];
-
         $user = Input::all();
         $validator = $this->validator($user);
         if ($validator->passes())
@@ -147,7 +141,7 @@ class AuthController extends Controller
 
     protected function vertifyNewPassword(array $data)
     {
-        return Validator::make($data,['newPassWord' => 'required|confirmed|min:6'])
+        return Validator::make($data,['newPassWord' => 'required|confirmed|min:6']);
     }
 
     public function changePassword()
