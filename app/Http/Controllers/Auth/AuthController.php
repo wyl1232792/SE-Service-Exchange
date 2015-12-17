@@ -149,6 +149,7 @@ class AuthController extends Controller
     {
         return Validator::make($data,['newPassWord' => 'required|confirmed|min:6'])
     }
+
     public function changePassword()
     {
         //input :
@@ -157,12 +158,13 @@ class AuthController extends Controller
         //          newPassWord
         if (Auth::check())
         {
-            // The user is logged in...
+            // The user has logged in...
+            //this is for none jaccount user
             $user = Auth::User();
-            $user_changePassword = Input::all();
-            if ($user->password === bcrypt($oldPassWord)
+            $input = Input::all();
+            if ($user->password === bcrypt($input['oldPassWord']))
             {
-                $validator = $this->vertifyNewPassword($user_changePassword);
+                $validator = $this->vertifyNewPassword($input);
                 if ($validator->passes())
                 {
                     $user->password = bcrypt($newPassWord);
@@ -171,15 +173,17 @@ class AuthController extends Controller
                 else
                 {
                     //新密码不符合要求
+                    return view('/profile/changePassword')->with('error', 'The new password must be more than 6 characters');
                 }
             }
             else
             {
                 //旧密码不符
+                return view('/profile/changePassword')->with('error', 'Please check the old password');
             }
-
+            return redirect('/home')->with('Password changed successfully!');
         }
         
-        return redirect('home');
+        return redirect('/');
     }
 }
