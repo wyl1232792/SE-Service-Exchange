@@ -82,9 +82,9 @@ class GoodsController extends Controller
         //
         $goodsDetail = Goods::find($id);
         if ($goodsDetail == NULL) {
-            return view('goodsDetail')->with('errors', 'the goods not found');
+            return view('goods.goodsDetail')->with('errors', 'the goods not found');
         }
-        return view('goodsDetail')->with('goods', $goodsDetail);
+        return view('goods.goodsDetail')->with('goods', $goodsDetail);
     }
 
     /**

@@ -173,13 +173,13 @@ class AuthController extends Controller
                 else
                 {
                     //新密码不符合要求
-                    return view('/profile/changePassword')->with('error', 'The new password must be more than 6 characters');
+                    return redirect('/profile/changePassword')->with('error', 'The new password must be more than 6 characters');
                 }
             }
             else
             {
                 //旧密码不符
-                return view('/profile/changePassword')->with('error', 'Please check the old password');
+                return redirect('/profile/changePassword')->with('error', 'Please check the old password');
             }
             return redirect('/home')->with('Password changed successfully!');
         }

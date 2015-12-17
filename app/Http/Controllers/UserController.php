@@ -50,9 +50,9 @@ class UserController extends Controller
         //
         $userDetail = User::find($id);
         if ($userDetail == NULL) {
-            return view('userDetail')->with('errors', 'the user not found');
+            return view('profile.userDetail')->with('errors', 'the user not found');
         }
-        return view('userDetail')->with('user', $userDetail);
+        return view('profile.userDetail')->with('user', $userDetail);
     }
 
     /**
