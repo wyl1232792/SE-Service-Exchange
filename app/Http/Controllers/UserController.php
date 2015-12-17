@@ -48,7 +48,10 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $userDetail = User::findOrFail($id);
+        $userDetail = User::find($id);
+        if ($userDetail == NULL) {
+            return view('userDetail')->with('errors', 'the user not found');
+        }
         return view('userDetail')->with('user', $userDetail);
     }
 
