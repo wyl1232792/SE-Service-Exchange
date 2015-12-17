@@ -38,7 +38,7 @@ class GoodsController extends Controller
         if ($request->file('photo')->isValid()){
                 $file = Request::file('photo');
                 $name = md5(microtime().$input['id']).'.'.$extension;
-                Request::file('photo')->move($'public/img', $name);
+                Request::file('photo')->move('public/img', $name);
                 $path = 'public/img/';
                 $image_url = $path . '/' . $name;
                 $good = Goods::create([
