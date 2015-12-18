@@ -55,7 +55,8 @@
                             </a>
                         </div>
                         <div class="col-xs-5 ng-scope" tooltip="可以在个人中心查看哦！">
-                            @if ($goods->isMarked())
+
+                            @if (Auth::check() && $goods->isMarked())
                                 <a class="text-primary" onclick="$.ajax('{{ url('goods/'. $goods->id. '/unmark') }}')">
                                     <i class="fa fa-2x fa-fw fa-star-o"></i>
                                     <span>已收藏</span>
