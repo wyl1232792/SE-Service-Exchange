@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('home', 'HomeController@showProfile');
 	Route::get('profile/edit', 'HomeController@editProfile');
 	Route::post('profile/edit', 'UserController@editCurrentUser');
-	Route::get('listGoods', 'HomeController@listGoods');
+	Route::get('profile/listGoods', 'HomeController@listGoods');
 	Route::get('goods/{id}/edit', 'HomeController@editGoods')->where('id', '[0-9]+');
 	Route::post('goods/list', 'GoodsController@create');
 	Route::post('goods/{id}/edit', 'GoodsController@edit')->where('id', '[0-9]+');

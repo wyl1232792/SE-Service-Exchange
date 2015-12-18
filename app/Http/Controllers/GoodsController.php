@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Goods;
+use Auth;
 
 class GoodsController extends Controller
 {
@@ -24,7 +25,7 @@ class GoodsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(GoodsRequest $request)
+    public function create(Request $request)
     {
         //读取内容
         $photo = $request->file('photo');
@@ -36,25 +37,22 @@ class GoodsController extends Controller
         //save model
 
         if ($request->file('photo')->isValid()){
-                $file = Request::file('photo');
-                $name = md5(microtime().$input['id']).'.'.$extension;
-                Request::file('photo')->move('public/img', $name);
-                $path = 'public/img/';
-                $image_url = $path . '/' . $name;
-                $good = Goods::create([
-                    'name' => $input['name'],
-                    'description' => $input['description'],
-                    'id' => $input['id'],
-                    'user_id' =>  $input['user_id'],
-                    'type' => $input['type'],
-                    'price' => $input['price'],
-                    'status' => $input['status'],
-                    'tag' => $input['tag'], 
-                    'image_url' => $input['image_url'],  
+            $name = md5(microtime() . $input['name']) . '.' . $extension;
+            $request->file('photo')->move('public/img', $name);
+            $path = 'public/img/';
+            $image_url = $path . '/' . $name;
+            $good = Goods::create([
+                'name' => $input['name'],
+                'description' => $input['description'],
+                'user_id' =>  Auth::User()->id,
+                'type' => $input['type'],
+                'price' => $input['price'],
+                'status' => 0,
+                'image_url' => $image_url,  
             ]);
+            return redirect('/goods/' . $good->id . '/detail')->with('message', 'Information successfully recorded');
         }
        
-        return redirect('/goods/' . $good->id . '/detail')->with('message', 'Information successfully recorded');
 
 
         

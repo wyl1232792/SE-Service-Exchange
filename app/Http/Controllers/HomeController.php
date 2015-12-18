@@ -28,9 +28,9 @@ class HomeController extends Controller
         return view('profile.dashboard');
     }
 
-    public function listItem()
+    public function listGoods()
     {
-        
+        return view('goods.goodsCreate');
     }
 
     /**
