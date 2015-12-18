@@ -38,19 +38,19 @@ class GoodsController extends Controller
 
         if ($request->file('photo')->isValid()){
             $name = md5(microtime() . $input['name']) . '.' . $extension;
-            $request->file('photo')->move('public/img', $name);
-            $path = 'public/img/';
+            $path = 'img/goods';
+            $request->file('photo')->move($path, $name);
             $image_url = $path . '/' . $name;
-            $good = Goods::create([
-                'name' => $input['name'],
-                'description' => $input['description'],
-                'user_id' =>  Auth::User()->id,
-                'type' => $input['type'],
-                'price' => $input['price'],
-                'status' => 0,
-                'image_url' => $image_url,  
-            ]);
-            return redirect('/goods/' . $good->id . '/detail')->with('message', 'Information successfully recorded');
+            $goods = new Goods;
+            $goods->name = $input['name'];
+            $goods->description = $input['description'];
+            $goods->user_id = Auth::User()->id;
+            $goods->type = $input['type'];
+            $goods->price = $input['price'];
+            $goods->status = 0;
+            $goods->image_url = $image_url;
+            $goods->save();
+            return redirect('/goods/' . $goods->id . '/detail')->with('message', 'Information successfully recorded');
         }
        
 
