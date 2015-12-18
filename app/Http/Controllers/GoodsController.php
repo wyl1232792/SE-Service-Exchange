@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Goods;
 use Auth;
+use DB;
 
 class GoodsController extends Controller
 {
@@ -56,6 +57,22 @@ class GoodsController extends Controller
 
 
         
+    }
+
+    public function mark($id)
+    {
+        DB::table('marks')->insert([
+                'user_id' => Auth::User()->id,
+                'goods_id' => $id
+            ]);
+    }
+
+    public function unmark($id)
+    {
+        DB::table('marks')
+            ->where('user_id', '=', Auth::User()->id)
+            ->where('goods_id', '=', $id)
+            ->delete();
     }
 
     /**
@@ -127,10 +144,5 @@ class GoodsController extends Controller
     public function trade($id)
     {
 
-    }
-
-    public function mark($id)
-    {
-        
     }
 }

@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::post('goods/{id}/trade', 'GoodsController@trade')->where('id', '[0-9]+');
 	Route::post('goods/{id}/quote', 'GoodsController@quote')->where('id', '[0-9]+');
 	Route::get('goods/{id}/mark', 'GoodsController@mark')->where('id', '[0-9]+');
+	Route::get('goods/{id}/unmark', 'GoodsController@unmark')->where('id', '[0-9]+');
 	Route::get('profile/changePassword', 'HomeController@showChangePassword');
 	Route::post('changePassword', 'Auth\AuthController@changePassword');
 	

@@ -39,7 +39,7 @@
     <div class="row">
     <!--此处用于接受输出商品-->
         @foreach ($goods as $good)
-            <a class=" col-md-3" >
+            <a class=" col-md-3" href="{{ url('goods/'. $good->id. '/detail') }}">
                 <div class="poster">
                     <img src="{{ $good->image_url }}">
                 </div>
@@ -203,27 +203,7 @@
             <!--end of goodscolumn-->
 
     </div>	
- <!--end of row-->
-                <!--pager -->
-                <nav>
-    <ul class="pager" id="pagerctl" id="pager">
-        <li >
-            <a href="#" aria-label="Previous">
-                <span aria-hidden="true" >&laquo;</span>
-            </a>
-        </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-            <a href="#" aria-label="Next">
-                <span aria-hidden="true" >&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>                            
-</div>
-        <!--end of goods-container-->
+    <div style="width: auto; margin: 0 auto;">
+        {!! $goods->render() !!}
+    </div>
 @endsection
