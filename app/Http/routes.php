@@ -11,8 +11,10 @@
 |
 */
 
+
 Route::get('/', 'HomeController@index');
-Route::get('goods/search', 'HomeController@index');
+Route::get('/byt/{id}', 'HomeController@bb');
+Route::get('/weige/{id}', 'HomeController@bb2');
 
 Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');

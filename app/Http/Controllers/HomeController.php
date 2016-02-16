@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Goods;
+use DB;
 use Session;
+use Response;
 class HomeController extends Controller
 {
     /**
@@ -16,11 +18,32 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $itemPerPage = 20;
-        $goods = Goods::paginate($itemPerPage);
-        return view('body', [
-                'goods' => $goods,
-            ]);
+        return $this->calc('t3', '3' ,'t19');
+    }
+
+    public function calc($tf, $m, $tx)
+    {
+        for ($i = 1; $i < 10; $i++)
+        {
+            echo $i . ' : ' . DB::table('t')->where('t1', '=', '1')->where($tf, ($m === '0') ? '>': '=', $m)->where($tx, '=', $i)->count() . '</br>';
+        }
+    }
+
+    public function bb($id)
+    {
+        for ($i = 1; $i < 10; $i++)
+        {
+            echo $i . ' : ' . DB::table('t')->where('t'.$id, '=', $i)->count() . '</br>';
+        }
+    }
+
+
+    public function bb2($id)
+    {
+        for ($i = 1; $i < 10; $i++)
+        {
+            echo $i . ' : ' . DB::table('tz')->where('t'.$id, '=', $i)->count() . '</br>';
+        }
     }
 
     public function showProfile()
